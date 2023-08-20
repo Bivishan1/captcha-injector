@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Captcha Injector.",
+  "version": "1.0",
+  "description": "Captcha Injector for Korean consul.",
+  "permissions": ["scripting", "activeTab"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://consul.mofa.go.kr/ciph/0800/selectCIPH0801Deng.do",
+        "https://consul.mofa.go.kr/ciph/0800/selectCIPH0801D.do",
+        "https://consul.mofa.go.kr/cipl/0100/login.do?authFailed=Y"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
