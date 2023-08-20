@@ -4543,11 +4543,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const captchaInputChangesChecker = setInterval(handleInputChanges, 500);
 
       function handleInputChanges() {
-        console.log("Checking for input changes...");
+        // console.log("Checking for input changes...");
         iterationCount++;
-        if (captchaInputElement.value == "" && iterationCount < 50) {
+        if (captchaInputElement.value === "" && iterationCount < 30) {
           captchaInputElement.value = newText;
-        } else if(iterationCount > 50) {
+        } else if(iterationCount > 30) {
           window.clearInterval(captchaInputChangesChecker);
         }
       }
